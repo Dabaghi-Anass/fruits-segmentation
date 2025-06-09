@@ -11,12 +11,79 @@
         margin: 0;
         display: flex;
         justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
         align-items: center;
-        background-color: #f0f0f0;
+        font-family: Helvetica, sans-serif;
+        background-color: #ffe4f4;
+      }
+      .drop-area {
+        border: 2px dashed #8b115e;
+        padding: 3rem;
+        background: #fff;
+        height: 400px;
+        cursor: pointer;
+        transition: border-color 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-radius: 100%;
+        aspect-ratio: 1;
+        color: #ff008c;
+        span {
+          font-size: 1.2rem;
+          font-weight: bold;
+          line-height: 1.5;
+        }
+      }
+      .drop-area.dragover {
+        border-color: #0078d7;
+        background: #e6f7ff;
+        color: #0078d7;
+      }
+      #imageUpload {
+        display: none;
+      }
+      .submit-btn {
+        background-color: #ff008c;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-top: 1rem;
+        position: absolute;
+        z-index: 10;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%) translateY(50%);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .submit-btn:hover {
+        background-color: #e6007a;
+      }
+      .submit-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
       }
     </style>
   </head>
   <body>
+    <label for="imageUpload" class="drop-area" id="dropArea">
+      <span>
+        Déposez une image ici ou cliquez pour sélectionner (PNG, JPG,
+        JPEG)</span
+      >
+      <input
+        type="file"
+        id="imageUpload"
+        name="image"
+        accept="image/*"
+        required
+      />
+    </label>
     <script src="script.js"></script>
   </body>
 </html>
