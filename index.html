@@ -1,73 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
-	<style>
-		* {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 640px;
-			height: 640px;
-		}
-	</style>
-	<body>
-		<canvas> </canvas>
-		<script>
-			const image =
-				"data:image/jpeg;base64,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";
-			const canvas = document.querySelector("canvas");
-			const ctx = canvas.getContext("2d");
-			fetch(
-				"https://serverless.roboflow.com/infer/workflows/anass-dabaghi-iac81/custom-workflow-3",
-				{
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({
-						api_key: "RyJWYPyKpym7ieKcjQaZ",
-						inputs: {
-							image: {
-								type: "base64",
-								value: image,
-							},
-						},
-					}),
-				}
-			).then((response) => {
-				response.json().then((result) => {
-					let imageObj = result.outputs[0].predictions;
-					var im = new Image();
-					im.src = image;
-					document.body.appendChild(im);
-					im.onload = function () {
-						ctx.drawImage(im, 0, 0, canvas.width, canvas.height);
-						imageObj.forEach((pred) => {
-							ctx.beginPath();
-							ctx.lineWidth = 3;
-							ctx.strokeStyle = "red";
-							ctx.rect(
-								pred.x - pred.width / 2,
-								pred.y - pred.height / 2,
-								pred.width,
-								pred.height
-							);
-							ctx.stroke();
-							ctx.font = "20px Arial";
-							ctx.fillStyle = "red";
-							ctx.fillText(
-								pred.class,
-								pred.x - pred.width / 2,
-								pred.y - pred.height / 2 - 5
-							);
-						});
-					};
-				});
-			});
-		</script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="script.js"></script>
+  </body>
 </html>
